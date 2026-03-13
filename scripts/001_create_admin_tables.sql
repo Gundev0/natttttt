@@ -64,24 +64,3 @@ CREATE TABLE IF NOT EXISTS media (
   section TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
-
--- Enable RLS
-ALTER TABLE site_settings ENABLE ROW LEVEL SECURITY;
-ALTER TABLE products ENABLE ROW LEVEL SECURITY;
-ALTER TABLE offices ENABLE ROW LEVEL SECURITY;
-ALTER TABLE testimonials ENABLE ROW LEVEL SECURITY;
-ALTER TABLE media ENABLE ROW LEVEL SECURITY;
-
--- Policies for public read access
-CREATE POLICY "Allow public read site_settings" ON site_settings FOR SELECT USING (true);
-CREATE POLICY "Allow public read products" ON products FOR SELECT USING (is_active = true);
-CREATE POLICY "Allow public read offices" ON offices FOR SELECT USING (is_active = true);
-CREATE POLICY "Allow public read testimonials" ON testimonials FOR SELECT USING (is_active = true);
-CREATE POLICY "Allow public read media" ON media FOR SELECT USING (true);
-
--- Policies for authenticated users (admin)
-CREATE POLICY "Allow admin full access site_settings" ON site_settings FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Allow admin full access products" ON products FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Allow admin full access offices" ON offices FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Allow admin full access testimonials" ON testimonials FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Allow admin full access media" ON media FOR ALL USING (auth.role() = 'authenticated');
