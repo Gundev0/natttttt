@@ -7,7 +7,7 @@ import { ServicesProcess } from "@/components/services/services-process"
 import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
-  title: "Nos Services | NATHANGROUP - Internet Satellite & Réseaux en RDC",
+  title: "Nos Services | NATHAN GROUPE - Internet Satellite & Réseaux en RDC",
   description: "Découvrez nos services: installation Starlink, équipements réseaux MikroTik et Ubiquiti, configuration réseau, maintenance et support technique 24/7 en RDC.",
 }
 

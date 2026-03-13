@@ -7,7 +7,7 @@ import { OffersComparison } from "@/components/offres/offers-comparison"
 import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
-  title: "Nos Offres | NATHANGROUP - Forfaits Internet Starlink en RDC",
+  title: "Nos Offres | NATHAN GROUPE - Forfaits Internet Starlink en RDC",
   description: "Découvrez nos offres Internet Starlink: Standard, Business et Hybride. Des solutions adaptées aux particuliers et entreprises en République Démocratique du Congo.",
 }
 

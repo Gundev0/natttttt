@@ -7,7 +7,7 @@ import { EquipmentProducts } from "@/components/equipment/equipment-products"
 import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
-  title: "Équipements Réseaux | NATHANGROUP - Routeurs, Switches, WiFi en RDC",
+  title: "Équipements Réseaux | NATHAN GROUPE - Routeurs, Switches, WiFi en RDC",
   description: "Achetez vos équipements réseaux professionnels: routeurs MikroTik, switches Cisco, points d'accès Ubiquiti, câbles et accessoires. Livraison en RDC.",
 }
 

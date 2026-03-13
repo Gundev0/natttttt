@@ -6,8 +6,8 @@ import { ContactForm } from "@/components/contact/contact-form"
 import { ContactInfo } from "@/components/contact/contact-info"
 
 export const metadata: Metadata = {
-  title: "Contact | NATHANGROUP - Demandez votre Devis Gratuit",
-  description: "Contactez NATHANGROUP pour un devis gratuit. Installation Starlink, équipements réseaux et support technique en République Démocratique du Congo.",
+  title: "Contact | NATHAN GROUPE - Demandez votre Devis Gratuit",
+  description: "Contactez NATHAN GROUPE pour un devis gratuit. Installation Starlink, équipements réseaux et support technique en République Démocratique du Congo.",
 }
 
 export default function ContactPage() {

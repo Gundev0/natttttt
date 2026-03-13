@@ -9,8 +9,8 @@ import { Testimonials } from "@/components/testimonials"
 import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
-  title: "À Propos | NATHANGROUP - Votre Partenaire Connectivité en RDC",
-  description: "Découvrez NATHANGROUP, votre partenaire de confiance pour l'Internet satellite Starlink et les solutions réseaux en République Démocratique du Congo depuis 2020.",
+  title: "À Propos | NATHAN GROUPE - Votre Partenaire Connectivité en RDC",
+  description: "Découvrez NATHAN GROUPE, votre partenaire de confiance pour l'Internet satellite Starlink et les solutions réseaux en République Démocratique du Congo depuis 2020.",
 }
 
 export default function AboutPage() {

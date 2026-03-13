@@ -28,7 +28,7 @@ export function ServicesHero() {
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              De l{"'"}installation Starlink à la configuration réseau complète, NATHANGROUP 
+              De l{"'"}installation Starlink à la configuration réseau complète, NATHAN GROUPE 
               vous accompagne avec une expertise technique de pointe. Nos ingénieurs certifiés 
               conçoivent et déploient des solutions adaptées à vos besoins spécifiques.
             </p>
@@ -52,7 +52,7 @@ export function ServicesHero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/team-tech.jpg"
-                alt="Installation d'équipements réseaux par NATHANGROUP"
+                alt="Installation d'équipements réseaux par NATHAN GROUPE"
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"
