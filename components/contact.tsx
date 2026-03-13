@@ -9,20 +9,20 @@ import { Textarea } from "@/components/ui/textarea"
 const contactInfo = [
   {
     icon: Phone,
-    label: "Téléphone",
-    value: "+243 123 456 789",
-    href: "tel:+243123456789",
+    label: "Téléphone / WhatsApp",
+    value: "+243 979 213 370",
+    href: "tel:+243979213370",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "contact@nathangroup.cd",
-    href: "mailto:contact@nathangroup.cd",
+    value: "contact@nathangroupe.cd",
+    href: "mailto:contact@nathangroupe.cd",
   },
   {
     icon: MapPin,
-    label: "Adresse",
-    value: "Kinshasa, RD Congo",
+    label: "Adresses",
+    value: "Kinshasa | Goma | Bunia",
     href: "#",
   },
 ]

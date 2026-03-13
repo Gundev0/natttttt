@@ -14,13 +14,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'NATHANGROUP | Internet Satellite Haute Performance en RDC',
-  description: 'Accédez à la puissance de Starlink avec NATHANGROUP. Connectivité satellite haute performance, équipements réseaux avancés et expertise technique pour entreprises et particuliers en RDC.',
-  keywords: ['Starlink', 'Internet satellite', 'RDC', 'Kinshasa', 'connectivité', 'réseau', 'NATHANGROUP', 'équipements réseaux', 'Goma', 'Bunia'],
-  authors: [{ name: 'NATHANGROUP' }],
+  title: 'NATHAN GROUPE | Internet Satellite Haute Performance en RDC',
+  description: 'Votre partenaire officiel pour une connectivité meilleure. NATHAN GROUPE - Connectivité satellite haute performance, équipements réseaux avancés et expertise technique pour entreprises et particuliers en RDC.',
+  keywords: ['Starlink', 'Internet satellite', 'RDC', 'Kinshasa', 'connectivité', 'réseau', 'NATHAN GROUPE', 'équipements réseaux', 'Goma', 'Bunia'],
+  authors: [{ name: 'NATHAN GROUPE' }],
   openGraph: {
-    title: 'NATHANGROUP | Internet Satellite Haute Performance',
-    description: 'La puissance du satellite et de l\'expertise réseau pour votre entreprise en RDC.',
+    title: 'NATHAN GROUPE | Internet Satellite Haute Performance',
+    description: 'Votre partenaire officiel pour une connectivité meilleure en RDC.',
     type: 'website',
     locale: 'fr_FR',
   },

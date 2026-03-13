@@ -28,7 +28,7 @@ const reasons = [
 
 const testimonials = [
   {
-    quote: "Grâce à NATHANGROUP, notre entreprise à Goma dispose enfin d'une connexion fiable. Les visioconférences sont fluides et le cloud fonctionne parfaitement.",
+    quote: "Grâce à NATHAN GROUPE, notre entreprise à Goma dispose enfin d'une connexion fiable. Les visioconférences sont fluides et le cloud fonctionne parfaitement.",
     author: "Jean-Pierre M.",
     company: "Directeur, LogiCongo SARL",
   },
@@ -52,7 +52,7 @@ export function WhyUs() {
           {/* Left - Content */}
           <div>
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Pourquoi NATHANGROUP
+              Pourquoi NATHAN GROUPE
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
               Votre partenaire de confiance pour la{" "}
@@ -84,7 +84,7 @@ export function WhyUs() {
             <div className="glass-card rounded-2xl p-12 flex items-center justify-center">
               <Image
                 src="/logo-nathan.png"
-                alt="NATHANGROUP"
+                alt="NATHAN GROUPE"
                 width={400}
                 height={400}
                 className="w-full max-w-sm h-auto"

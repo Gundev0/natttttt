@@ -70,13 +70,13 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <Image
                 src="/logo-nathan.png"
-                alt="NATHANGROUP"
+                alt="NATHAN GROUPE"
                 width={50}
                 height={50}
                 className="h-12 w-auto"
               />
               <span className="text-xl font-bold" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                NATHAN<span className="text-[#D39A6A]">GROUP</span>
+                NATHAN <span className="text-[#D39A6A]">GROUPE</span>
               </span>
             </Link>
             <p className="text-[#FFF1E8]/70 mb-6 leading-relaxed max-w-sm">
@@ -141,11 +141,11 @@ export function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+243123456789" className="flex items-center gap-3 text-[#FFF1E8]/70 hover:text-[#D39A6A] transition-colors">
+                <a href="tel:+243979213370" className="flex items-center gap-3 text-[#FFF1E8]/70 hover:text-[#D39A6A] transition-colors">
                   <div className="w-8 h-8 rounded-full bg-[#FFF1E8]/10 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <span>+243 123 456 789</span>
+                  <span>+243 979 213 370</span>
                 </a>
               </li>
               <li>
@@ -161,7 +161,11 @@ export function Footer() {
                   <div className="w-8 h-8 rounded-full bg-[#FFF1E8]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <span>Kinshasa, RDC</span>
+                  <div className="text-sm space-y-1">
+                    <p>Kinshasa: AV. KAUKA 53-73, IMM MAISHA-PARK Q/BATETELA C/GOMBE</p>
+                    <p>Goma: Q/MABANGA-SUD AV.MUTONGO C/KARISIMBI N 007</p>
+                    <p>Bunia: Q/BAKONKO Av.MANIEMA C/MBUNYA N 019</p>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -172,7 +176,7 @@ export function Footer() {
         <div className="pt-8 border-t border-[#FFF1E8]/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#FFF1E8]/50 text-sm">
-              © {new Date().getFullYear()} NATHANGROUP SARL. Tous droits réservés.
+              © {new Date().getFullYear()} NATHAN GROUPE SARL. Tous droits réservés.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               {footerLinks.legal.map((link) => (

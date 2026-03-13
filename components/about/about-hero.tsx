@@ -26,7 +26,7 @@ export function AboutHero() {
             </h1>
 
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Depuis 2020, NATHANGROUP s{"'"}engage à révolutionner la connectivité en République 
+              Depuis 2020, NATHAN GROUPE s{"'"}engage à révolutionner la connectivité en République 
               Démocratique du Congo. Notre mission : rendre l{"'"}Internet haut débit accessible 
               à tous, partout, grâce à la technologie satellite Starlink et notre expertise réseau.
             </p>
@@ -51,7 +51,7 @@ export function AboutHero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/about-team.jpg"
-                alt="L'équipe NATHANGROUP"
+                alt="L'équipe NATHAN GROUPE"
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"

@@ -9,21 +9,21 @@ const testimonials = [
   {
     name: "Jean-Pierre Mukendi",
     role: "PDG, TechCongo SARL",
-    content: "Grâce à NATHANGROUP, notre entreprise dispose désormais d'une connexion Internet stable et rapide. Finis les problèmes de coupures qui nous coûtaient cher. Le service client est exceptionnel.",
+    content: "Grâce à NATHAN GROUPE, notre entreprise dispose désormais d'une connexion Internet stable et rapide. Finis les problèmes de coupures qui nous coûtaient cher. Le service client est exceptionnel.",
     rating: 5,
     image: "/images/team-tech.jpg"
   },
   {
     name: "Marie-Claire Kabila",
     role: "Directrice, Hôtel Kinshasa Palace",
-    content: "L'installation Starlink par NATHANGROUP a transformé l'expérience de nos clients. La connexion WiFi est maintenant notre point fort. Installation rapide et équipe très professionnelle.",
+    content: "L'installation Starlink par NATHAN GROUPE a transformé l'expérience de nos clients. La connexion WiFi est maintenant notre point fort. Installation rapide et équipe très professionnelle.",
     rating: 5,
     image: "/images/about-team.jpg"
   },
   {
     name: "Patrick Lumumba",
     role: "Responsable IT, Mining Corp",
-    content: "Pour nos opérations en zone minière, avoir une connexion fiable était crucial. NATHANGROUP a déployé une solution hybride qui répond parfaitement à nos exigences. Support technique réactif 24/7.",
+    content: "Pour nos opérations en zone minière, avoir une connexion fiable était crucial. NATHAN GROUPE a déployé une solution hybride qui répond parfaitement à nos exigences. Support technique réactif 24/7.",
     rating: 5,
     image: "/images/hero-satellite.jpg"
   },

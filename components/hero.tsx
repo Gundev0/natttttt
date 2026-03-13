@@ -63,7 +63,7 @@ export function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-medium text-primary">Partenaire officiel Starlink en RDC</span>
+              <span className="text-sm font-medium text-primary">Votre partenaire officiel pour une connectivite meilleure</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
@@ -74,7 +74,7 @@ export function Hero() {
             
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl text-pretty">
               Internet haut débit par satellite, équipements réseaux professionnels et expertise 
-              technique. NATHANGROUP accompagne les entreprises et particuliers vers une 
+              technique. NATHAN GROUPE accompagne les entreprises et particuliers vers une 
               connectivité sans compromis.
             </p>
             
@@ -112,7 +112,7 @@ export function Hero() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/hero-satellite.jpg"
-                  alt="Internet satellite haute performance avec NATHANGROUP"
+                  alt="Internet satellite haute performance avec NATHAN GROUPE"
                   width={600}
                   height={500}
                   className="w-full h-auto object-cover"

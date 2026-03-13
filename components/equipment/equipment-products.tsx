@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ShoppingCart, Star, Tag, ArrowRight } from "lucide-react"
+import { CreditCard, Star, Tag, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const products = [
@@ -13,7 +13,8 @@ const products = [
     rating: 4.8,
     reviews: 45,
     badge: "Populaire",
-    features: ["5 ports Gigabit", "WiFi 5 Dual-band", "USB 3.0", "RouterOS"]
+    features: ["5 ports Gigabit", "WiFi 5 Dual-band", "USB 3.0", "RouterOS"],
+    paymentLink: "https://wa.me/243979213370?text=Je%20souhaite%20acheter%20MikroTik%20hAP%20ac3"
   },
   {
     name: "MikroTik RB5009UG+S+IN",
@@ -23,7 +24,8 @@ const products = [
     rating: 4.9,
     reviews: 32,
     badge: "Pro",
-    features: ["7 ports Gigabit", "2.5G port", "SFP+ 10G", "Quad-core"]
+    features: ["7 ports Gigabit", "2.5G port", "SFP+ 10G", "Quad-core"],
+    paymentLink: "https://wa.me/243979213370?text=Je%20souhaite%20acheter%20MikroTik%20RB5009UG"
   },
   {
     name: "Ubiquiti UniFi U6 Pro",
@@ -33,7 +35,8 @@ const products = [
     rating: 4.7,
     reviews: 67,
     badge: "Promo",
-    features: ["WiFi 6", "4x4 MIMO", "300+ clients", "PoE"]
+    features: ["WiFi 6", "4x4 MIMO", "300+ clients", "PoE"],
+    paymentLink: "https://wa.me/243979213370?text=Je%20souhaite%20acheter%20Ubiquiti%20UniFi%20U6%20Pro"
   },
   {
     name: "MikroTik CSS326-24G-2S+RM",
@@ -43,7 +46,8 @@ const products = [
     rating: 4.6,
     reviews: 28,
     badge: null,
-    features: ["24 ports Gigabit", "2x SFP+ 10G", "SwOS", "Rack 1U"]
+    features: ["24 ports Gigabit", "2x SFP+ 10G", "SwOS", "Rack 1U"],
+    paymentLink: "https://wa.me/243979213370?text=Je%20souhaite%20acheter%20MikroTik%20CSS326"
   },
   {
     name: "Ubiquiti EdgeSwitch 24",
@@ -53,7 +57,8 @@ const products = [
     rating: 4.8,
     reviews: 41,
     badge: "Promo",
-    features: ["24 ports Gigabit", "2x SFP", "L2/L3", "VLAN"]
+    features: ["24 ports Gigabit", "2x SFP", "L2/L3", "VLAN"],
+    paymentLink: "https://wa.me/243979213370?text=Je%20souhaite%20acheter%20Ubiquiti%20EdgeSwitch%2024"
   },
   {
     name: "MikroTik LHG 60G",
@@ -63,7 +68,8 @@ const products = [
     rating: 4.5,
     reviews: 19,
     badge: "60GHz",
-    features: ["60GHz wireless", "Jusqu'à 1Gbps", "Portée 1.5km", "Outdoor"]
+    features: ["60GHz wireless", "Jusqu'à 1Gbps", "Portée 1.5km", "Outdoor"],
+    paymentLink: "https://wa.me/243979213370?text=Je%20souhaite%20acheter%20MikroTik%20LHG%2060G"
   },
   {
     name: "Câble Cat6 (305m)",
@@ -73,7 +79,8 @@ const products = [
     rating: 4.4,
     reviews: 85,
     badge: "Promo",
-    features: ["UTP Cat6", "305 mètres", "23 AWG", "PVC"]
+    features: ["UTP Cat6", "305 mètres", "23 AWG", "PVC"],
+    paymentLink: "https://wa.me/243979213370?text=Je%20souhaite%20acheter%20Cable%20Cat6%20305m"
   },
   {
     name: "Kit connecteurs RJ45 (100pc)",
@@ -83,7 +90,8 @@ const products = [
     rating: 4.3,
     reviews: 120,
     badge: null,
-    features: ["RJ45 Cat6", "100 pièces", "Blindé", "Facile à sertir"]
+    features: ["RJ45 Cat6", "100 pièces", "Blindé", "Facile à sertir"],
+    paymentLink: "https://wa.me/243979213370?text=Je%20souhaite%20acheter%20Kit%20connecteurs%20RJ45"
   },
 ]
 
@@ -172,8 +180,15 @@ export function EquipmentProducts() {
                       </span>
                     )}
                   </div>
-                  <Button size="icon" variant="outline" className="rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground">
-                    <ShoppingCart className="w-4 h-4" />
+                  <Button 
+                    asChild
+                    size="sm" 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  >
+                    <Link href={product.paymentLink} target="_blank">
+                      <CreditCard className="w-4 h-4 mr-1" />
+                      Payer
+                    </Link>
                   </Button>
                 </div>
               </div>

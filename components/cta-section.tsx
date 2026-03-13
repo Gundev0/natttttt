@@ -40,7 +40,7 @@ export function CTASection() {
               variant="outline"
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 h-14"
             >
-              <Link href="tel:+243123456789" className="flex items-center gap-2">
+              <Link href="tel:+243979213370" className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 <span>Appeler maintenant</span>
               </Link>
@@ -48,14 +48,14 @@ export function CTASection() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-primary-foreground/80">
-            <a href="tel:+243123456789" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
+            <a href="tel:+243979213370" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
               <Phone className="w-5 h-5" />
-              <span>+243 123 456 789</span>
+              <span>+243 979 213 370</span>
             </a>
             <span className="hidden sm:block">|</span>
-            <a href="mailto:contact@nathangroup.cd" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
+            <a href="mailto:contact@nathangroupe.cd" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
               <Mail className="w-5 h-5" />
-              <span>contact@nathangroup.cd</span>
+              <span>contact@nathangroupe.cd</span>
             </a>
           </div>
         </div>

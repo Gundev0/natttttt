@@ -51,7 +51,7 @@ export function EquipmentHero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/equipment-network.jpg"
-                alt="Équipements réseaux NATHANGROUP"
+                alt="Équipements réseaux NATHAN GROUPE"
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"

@@ -13,7 +13,7 @@ export function AboutMission() {
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/hero-satellite.jpg"
-                alt="Connexion satellite NATHANGROUP"
+                alt="Connexion satellite NATHAN GROUPE"
                 width={600}
                 height={450}
                 className="w-full h-auto object-cover"
@@ -43,10 +43,10 @@ export function AboutMission() {
                 Notre raison d{"'"}être
               </span>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                Apprenez et développez vos compétences avec NATHANGROUP
+                Apprenez et développez vos compétences avec NATHAN GROUPE
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                NATHANGROUP est une entreprise spécialisée dans les solutions de connectivité 
+                NATHAN GROUPE est une entreprise spécialisée dans les solutions de connectivité 
                 et les équipements réseaux. Nous accompagnons les entreprises et les particuliers 
                 dans leur transformation numérique avec des solutions fiables et performantes.
               </p>

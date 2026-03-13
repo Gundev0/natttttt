@@ -68,7 +68,7 @@ const faqCategories = [
     questions: [
       {
         question: "Comment contacter le support technique ?",
-        answer: "Notre support est disponible par téléphone au +243 123 456 789, par email à support@nathangroup.cd, ou via WhatsApp. Les clients Business et Hybride bénéficient d'un support prioritaire 24/7 avec des temps de réponse garantis."
+        answer: "Notre support est disponible par téléphone au +243 979 213 370, par email à support@nathangroupe.cd, ou via WhatsApp. Les clients Business et Hybride bénéficient d'un support prioritaire 24/7 avec des temps de réponse garantis."
       },
       {
         question: "Quel est le délai d'intervention en cas de panne ?",

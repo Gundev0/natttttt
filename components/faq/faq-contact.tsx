@@ -30,7 +30,7 @@ export function FAQContact() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
-              <Link href="https://wa.me/243123456789" target="_blank">
+              <Link href="https://wa.me/243979213370" target="_blank">
                 Discuter sur WhatsApp
               </Link>
             </Button>

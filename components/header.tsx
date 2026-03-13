@@ -41,9 +41,9 @@ export function Header() {
       <div className="bg-[#3E1F0F] text-[#FFF1E8] py-2 text-sm hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <a href="tel:+243123456789" className="flex items-center gap-2 hover:text-[#D39A6A] transition-colors">
+            <a href="tel:+243979213370" className="flex items-center gap-2 hover:text-[#D39A6A] transition-colors">
               <Phone className="h-3.5 w-3.5" />
-              <span>+243 123 456 789</span>
+              <span>+243 979 213 370</span>
             </a>
             <span className="text-[#FFF1E8]/50">|</span>
             <span className="flex items-center gap-2">
@@ -52,7 +52,7 @@ export function Header() {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-[#FFF1E8]/70">Partenaire officiel Starlink</span>
+            <span className="text-[#FFF1E8]/70">Votre partenaire officiel pour une connectivite meilleure</span>
           </div>
         </div>
       </div>
@@ -71,14 +71,14 @@ export function Header() {
             <Link href="/" className="flex items-center gap-3">
               <Image
                 src="/logo-nathan.png"
-                alt="NATHANGROUP Logo"
+                alt="NATHAN GROUPE Logo"
                 width={50}
                 height={50}
                 className="h-12 w-auto"
               />
               <div className="hidden sm:block">
                 <span className="text-xl font-bold text-foreground" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                  NATHAN<span className="text-primary">GROUP</span>
+                  NATHAN <span className="text-primary">GROUPE</span>
                 </span>
               </div>
             </Link>
