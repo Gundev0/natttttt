@@ -1,0 +1,298 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { createClient } from '@/lib/supabase/client'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
+import { Switch } from '@/components/ui/switch'
+import { Plus, Pencil, Trash2, Loader2, Save, X } from 'lucide-react'
+
+interface HeroSlide {
+  id: string
+  title: string
+  subtitle: string | null
+  description: string | null
+  image_url: string | null
+  button_text: string | null
+  button_link: string | null
+  is_active: boolean
+  sort_order: number
+}
+
+export function HeroManager() {
+  const [items, setItems] = useState<HeroSlide[]>([])
+  const [loading, setLoading] = useState(true)
+  const [editingItem, setEditingItem] = useState<HeroSlide | null>(null)
+  const [isCreating, setIsCreating] = useState(false)
+  const [saving, setSaving] = useState(false)
+
+  const supabase = createClient()
+
+  useEffect(() => {
+    fetchItems()
+  }, [])
+
+  const fetchItems = async () => {
+    setLoading(true)
+    const { data } = await supabase
+      .from('hero_slides')
+      .select('*')
+      .order('sort_order', { ascending: true })
+    setItems(data || [])
+    setLoading(false)
+  }
+
+  const handleSave = async (item: Partial<HeroSlide>) => {
+    setSaving(true)
+    try {
+      if (item.id) {
+        await supabase.from('hero_slides').update(item).eq('id', item.id)
+      } else {
+        await supabase.from('hero_slides').insert(item)
+      }
+      await fetchItems()
+      setEditingItem(null)
+      setIsCreating(false)
+    } catch (error) {
+      console.error('Error saving:', error)
+    }
+    setSaving(false)
+  }
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('Êtes-vous sûr de vouloir supprimer cette bannière ?')) return
+    await supabase.from('hero_slides').delete().eq('id', id)
+    await fetchItems()
+  }
+
+  const toggleActive = async (id: string, isActive: boolean) => {
+    await supabase.from('hero_slides').update({ is_active: !isActive }).eq('id', id)
+    await fetchItems()
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <Loader2 className="w-8 h-8 animate-spin text-[#D39A6A]" />
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-2xl font-bold text-[#FFF1E8]" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+          Bannières Hero
+        </h2>
+        <Button
+          onClick={() => {
+            setIsCreating(true)
+            setEditingItem({
+              id: '',
+              title: '',
+              subtitle: '',
+              description: '',
+              image_url: '',
+              button_text: '',
+              button_link: '',
+              is_active: true,
+              sort_order: items.length
+            })
+          }}
+          className="bg-[#D39A6A] hover:bg-[#D39A6A]/90 text-[#1A1A1A]"
+        >
+          <Plus className="w-4 h-4 mr-2" />
+          Ajouter
+        </Button>
+      </div>
+
+      {(editingItem || isCreating) && (
+        <HeroForm
+          item={editingItem!}
+          saving={saving}
+          onSave={handleSave}
+          onCancel={() => {
+            setEditingItem(null)
+            setIsCreating(false)
+          }}
+        />
+      )}
+
+      <div className="space-y-4">
+        {items.map((item) => (
+          <div
+            key={item.id}
+            className="bg-[#242424] rounded-xl p-4 border border-[#FFF1E8]/10 flex items-center gap-4"
+          >
+            {item.image_url && (
+              <img
+                src={item.image_url}
+                alt={item.title}
+                className="w-24 h-16 object-cover rounded-lg"
+              />
+            )}
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-[#FFF1E8] truncate">{item.title}</h3>
+              <p className="text-sm text-[#FFF1E8]/60 truncate">{item.subtitle}</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <Switch
+                checked={item.is_active}
+                onCheckedChange={() => toggleActive(item.id, item.is_active)}
+              />
+              <Button
+                size="icon"
+                variant="ghost"
+                onClick={() => setEditingItem(item)}
+                className="text-[#FFF1E8]/60 hover:text-[#D39A6A]"
+              >
+                <Pencil className="w-4 h-4" />
+              </Button>
+              <Button
+                size="icon"
+                variant="ghost"
+                onClick={() => handleDelete(item.id)}
+                className="text-[#FFF1E8]/60 hover:text-red-400"
+              >
+                <Trash2 className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+        ))}
+
+        {items.length === 0 && (
+          <div className="text-center py-12 text-[#FFF1E8]/60">
+            Aucune bannière. Cliquez sur &quot;Ajouter&quot; pour commencer.
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+interface HeroFormProps {
+  item: HeroSlide
+  saving: boolean
+  onSave: (item: Partial<HeroSlide>) => void
+  onCancel: () => void
+}
+
+function HeroForm({ item, saving, onSave, onCancel }: HeroFormProps) {
+  const [formData, setFormData] = useState(item)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const dataToSave = { ...formData }
+    if (!dataToSave.id) delete (dataToSave as Partial<HeroSlide>).id
+    onSave(dataToSave)
+  }
+
+  return (
+    <div className="bg-[#242424] rounded-xl p-6 border border-[#D39A6A]/30 mb-6">
+      <h3 className="text-lg font-semibold text-[#FFF1E8] mb-4">
+        {item.id ? 'Modifier la bannière' : 'Nouvelle bannière'}
+      </h3>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label className="text-[#FFF1E8]/80">Titre</Label>
+            <Input
+              value={formData.title}
+              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              required
+              className="bg-[#1A1A1A] border-[#FFF1E8]/20 text-[#FFF1E8]"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label className="text-[#FFF1E8]/80">Sous-titre</Label>
+            <Input
+              value={formData.subtitle || ''}
+              onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
+              className="bg-[#1A1A1A] border-[#FFF1E8]/20 text-[#FFF1E8]"
+            />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label className="text-[#FFF1E8]/80">Description</Label>
+          <Textarea
+            value={formData.description || ''}
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            className="bg-[#1A1A1A] border-[#FFF1E8]/20 text-[#FFF1E8]"
+            rows={3}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label className="text-[#FFF1E8]/80">URL de l&apos;image</Label>
+          <Input
+            value={formData.image_url || ''}
+            onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
+            placeholder="https://..."
+            className="bg-[#1A1A1A] border-[#FFF1E8]/20 text-[#FFF1E8]"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label className="text-[#FFF1E8]/80">Texte du bouton</Label>
+            <Input
+              value={formData.button_text || ''}
+              onChange={(e) => setFormData({ ...formData, button_text: e.target.value })}
+              className="bg-[#1A1A1A] border-[#FFF1E8]/20 text-[#FFF1E8]"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label className="text-[#FFF1E8]/80">Lien du bouton</Label>
+            <Input
+              value={formData.button_link || ''}
+              onChange={(e) => setFormData({ ...formData, button_link: e.target.value })}
+              placeholder="https://..."
+              className="bg-[#1A1A1A] border-[#FFF1E8]/20 text-[#FFF1E8]"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label className="text-[#FFF1E8]/80">Ordre d&apos;affichage</Label>
+            <Input
+              type="number"
+              value={formData.sort_order}
+              onChange={(e) => setFormData({ ...formData, sort_order: parseInt(e.target.value) || 0 })}
+              className="bg-[#1A1A1A] border-[#FFF1E8]/20 text-[#FFF1E8]"
+            />
+          </div>
+          <div className="flex items-center gap-2 pt-8">
+            <Switch
+              checked={formData.is_active}
+              onCheckedChange={(checked) => setFormData({ ...formData, is_active: checked })}
+            />
+            <span className="text-sm text-[#FFF1E8]/80">Actif</span>
+          </div>
+        </div>
+
+        <div className="flex gap-3 pt-4">
+          <Button
+            type="submit"
+            disabled={saving}
+            className="bg-[#D39A6A] hover:bg-[#D39A6A]/90 text-[#1A1A1A]"
+          >
+            {saving ? (
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+            ) : (
+              <Save className="w-4 h-4 mr-2" />
+            )}
+            Enregistrer
+          </Button>
+          <Button type="button" variant="ghost" onClick={onCancel} className="text-[#FFF1E8]/60">
+            <X className="w-4 h-4 mr-2" />
+            Annuler
+          </Button>
+        </div>
+      </form>
+    </div>
+  )
+}
