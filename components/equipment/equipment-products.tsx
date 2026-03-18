@@ -1,93 +1,112 @@
 "use client"
 
 import Link from "next/link"
-import { ShoppingCart, Star, Tag, ArrowRight } from "lucide-react"
+import { Star, Tag, ArrowRight, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { createClient } from "@/lib/supabase/client"
+import { useEffect, useState } from "react"
 
-const products = [
+interface Equipment {
+  id: string
+  name: string
+  description: string | null
+  price: number | null
+  image_url: string | null
+  payment_link: string | null
+  category: string | null
+  is_featured: boolean
+  is_active: boolean
+  sort_order: number
+}
+
+// Fallback products for when database is empty
+const fallbackProducts = [
   {
+    id: "1",
     name: "MikroTik hAP ac3",
     category: "Routeur",
     price: 180,
-    originalPrice: 220,
-    rating: 4.8,
-    reviews: 45,
-    badge: "Populaire",
-    features: ["5 ports Gigabit", "WiFi 5 Dual-band", "USB 3.0", "RouterOS"]
+    description: "5 ports Gigabit, WiFi 5 Dual-band, USB 3.0, RouterOS",
+    image_url: null,
+    payment_link: "https://wa.me/243979213370?text=Je souhaite commander MikroTik hAP ac3",
+    is_featured: true,
+    is_active: true,
+    sort_order: 0
   },
   {
+    id: "2",
     name: "MikroTik RB5009UG+S+IN",
     category: "Routeur",
     price: 280,
-    originalPrice: null,
-    rating: 4.9,
-    reviews: 32,
-    badge: "Pro",
-    features: ["7 ports Gigabit", "2.5G port", "SFP+ 10G", "Quad-core"]
+    description: "7 ports Gigabit, 2.5G port, SFP+ 10G, Quad-core",
+    image_url: null,
+    payment_link: "https://wa.me/243979213370?text=Je souhaite commander MikroTik RB5009UG",
+    is_featured: false,
+    is_active: true,
+    sort_order: 1
   },
   {
+    id: "3",
     name: "Ubiquiti UniFi U6 Pro",
     category: "Point d'accès",
     price: 200,
-    originalPrice: 250,
-    rating: 4.7,
-    reviews: 67,
-    badge: "Promo",
-    features: ["WiFi 6", "4x4 MIMO", "300+ clients", "PoE"]
+    description: "WiFi 6, 4x4 MIMO, 300+ clients, PoE",
+    image_url: null,
+    payment_link: "https://wa.me/243979213370?text=Je souhaite commander Ubiquiti UniFi U6 Pro",
+    is_featured: true,
+    is_active: true,
+    sort_order: 2
   },
   {
+    id: "4",
     name: "MikroTik CSS326-24G-2S+RM",
     category: "Switch",
     price: 150,
-    originalPrice: null,
-    rating: 4.6,
-    reviews: 28,
-    badge: null,
-    features: ["24 ports Gigabit", "2x SFP+ 10G", "SwOS", "Rack 1U"]
-  },
-  {
-    name: "Ubiquiti EdgeSwitch 24",
-    category: "Switch",
-    price: 320,
-    originalPrice: 380,
-    rating: 4.8,
-    reviews: 41,
-    badge: "Promo",
-    features: ["24 ports Gigabit", "2x SFP", "L2/L3", "VLAN"]
-  },
-  {
-    name: "MikroTik LHG 60G",
-    category: "Point d'accès",
-    price: 350,
-    originalPrice: null,
-    rating: 4.5,
-    reviews: 19,
-    badge: "60GHz",
-    features: ["60GHz wireless", "Jusqu'à 1Gbps", "Portée 1.5km", "Outdoor"]
-  },
-  {
-    name: "Câble Cat6 (305m)",
-    category: "Câblage",
-    price: 120,
-    originalPrice: 150,
-    rating: 4.4,
-    reviews: 85,
-    badge: "Promo",
-    features: ["UTP Cat6", "305 mètres", "23 AWG", "PVC"]
-  },
-  {
-    name: "Kit connecteurs RJ45 (100pc)",
-    category: "Accessoires",
-    price: 25,
-    originalPrice: null,
-    rating: 4.3,
-    reviews: 120,
-    badge: null,
-    features: ["RJ45 Cat6", "100 pièces", "Blindé", "Facile à sertir"]
+    description: "24 ports Gigabit, 2x SFP+ 10G, SwOS, Rack 1U",
+    image_url: null,
+    payment_link: "https://wa.me/243979213370?text=Je souhaite commander MikroTik CSS326",
+    is_featured: false,
+    is_active: true,
+    sort_order: 3
   },
 ]
 
 export function EquipmentProducts() {
+  const [products, setProducts] = useState<Equipment[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const supabase = createClient()
+        const { data, error } = await supabase
+          .from('equipment')
+          .select('*')
+          .eq('is_active', true)
+          .order('sort_order', { ascending: true })
+        
+        if (error) throw error
+        setProducts(data && data.length > 0 ? data : fallbackProducts)
+      } catch (error) {
+        console.error('Error fetching products:', error)
+        setProducts(fallbackProducts)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchProducts()
+  }, [])
+
+  if (loading) {
+    return (
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,27 +129,29 @@ export function EquipmentProducts() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <div 
-              key={index}
+              key={product.id}
               className="glass-card glass-card-hover rounded-2xl overflow-hidden group"
             >
               {/* Image placeholder */}
               <div className="relative h-48 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <span className="text-3xl font-bold text-primary/50">
-                    {product.name[0]}
-                  </span>
-                </div>
-                {product.badge && (
-                  <span className={`absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-semibold ${
-                    product.badge === "Promo" 
-                      ? "bg-red-500 text-white" 
-                      : product.badge === "Populaire"
-                        ? "bg-secondary text-secondary-foreground"
-                        : "bg-primary text-primary-foreground"
-                  }`}>
-                    {product.badge}
+                {product.image_url ? (
+                  <img 
+                    src={product.image_url} 
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-24 h-24 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <span className="text-3xl font-bold text-primary/50">
+                      {product.name[0]}
+                    </span>
+                  </div>
+                )}
+                {product.is_featured && (
+                  <span className="absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-semibold bg-secondary text-secondary-foreground">
+                    Populaire
                   </span>
                 )}
               </div>
@@ -142,23 +163,21 @@ export function EquipmentProducts() {
                   {product.name}
                 </h3>
 
-                {/* Rating */}
+                {/* Rating placeholder */}
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 text-secondary fill-secondary" />
-                    <span className="text-sm font-medium text-foreground">{product.rating}</span>
+                    <span className="text-sm font-medium text-foreground">4.8</span>
                   </div>
-                  <span className="text-xs text-muted-foreground">({product.reviews} avis)</span>
+                  <span className="text-xs text-muted-foreground">(En stock)</span>
                 </div>
 
-                {/* Features */}
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {product.features.slice(0, 2).map((feature, i) => (
-                    <span key={i} className="text-xs px-2 py-0.5 rounded bg-muted text-muted-foreground">
-                      {feature}
-                    </span>
-                  ))}
-                </div>
+                {/* Description */}
+                {product.description && (
+                  <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
+                    {product.description}
+                  </p>
+                )}
 
                 {/* Price */}
                 <div className="flex items-center justify-between">
@@ -166,15 +185,30 @@ export function EquipmentProducts() {
                     <span className="text-xl font-bold text-foreground" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                       {product.price} USD
                     </span>
-                    {product.originalPrice && (
-                      <span className="text-sm text-muted-foreground line-through">
-                        {product.originalPrice} USD
-                      </span>
-                    )}
                   </div>
-                  <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                    Payer
-                  </Button>
+                  {product.payment_link ? (
+                    <Button 
+                      asChild
+                      variant="default" 
+                      size="sm" 
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    >
+                      <a href={product.payment_link} target="_blank" rel="noopener noreferrer">
+                        Payer
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button 
+                      asChild
+                      variant="default" 
+                      size="sm" 
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    >
+                      <a href="https://wa.me/243979213370" target="_blank" rel="noopener noreferrer">
+                        Payer
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
