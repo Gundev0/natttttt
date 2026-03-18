@@ -63,7 +63,7 @@ export function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-medium text-primary">Partenaire officiel Starlink en RDC</span>
+              <span className="text-sm font-medium text-primary">Votre partenaire officiel pour une connectivité meilleure</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance" style={{ fontFamily: 'var(--font-space-grotesk)' }}>

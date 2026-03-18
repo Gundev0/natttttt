@@ -141,11 +141,11 @@ export function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+243123456789" className="flex items-center gap-3 text-[#FFF1E8]/70 hover:text-[#D39A6A] transition-colors">
+                <a href="https://wa.me/243979213370" target="_blank" className="flex items-center gap-3 text-[#FFF1E8]/70 hover:text-[#D39A6A] transition-colors">
                   <div className="w-8 h-8 rounded-full bg-[#FFF1E8]/10 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <span>+243 123 456 789</span>
+                  <span>+243 979 213 370</span>
                 </a>
               </li>
               <li>
@@ -161,7 +161,11 @@ export function Footer() {
                   <div className="w-8 h-8 rounded-full bg-[#FFF1E8]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <span>Kinshasa, RDC</span>
+                  <div className="text-sm space-y-1">
+                    <p><strong>Kinshasa:</strong> AV. KAUKA 53-73, IMM MAISHA-PARK, Q/BATETELA, C/GOMBE</p>
+                    <p><strong>Goma:</strong> Q/MABANGA-SUD, AV.MUTONGO, C/KARISIMBI N 007</p>
+                    <p><strong>Bunia:</strong> Q/BAKONKO, Av.MANIEMA, C/MBUNYA N 019</p>
+                  </div>
                 </div>
               </li>
             </ul>

@@ -172,8 +172,8 @@ export function EquipmentProducts() {
                       </span>
                     )}
                   </div>
-                  <Button size="icon" variant="outline" className="rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground">
-                    <ShoppingCart className="w-4 h-4" />
+                  <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Payer
                   </Button>
                 </div>
               </div>

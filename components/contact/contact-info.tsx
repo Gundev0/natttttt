@@ -7,9 +7,9 @@ import Link from "next/link"
 const contactDetails = [
   {
     icon: Phone,
-    label: "Téléphone",
-    value: "+243 123 456 789",
-    href: "tel:+243123456789"
+    label: "WhatsApp",
+    value: "+243 979 213 370",
+    href: "https://wa.me/243979213370"
   },
   {
     icon: Mail,
@@ -18,16 +18,25 @@ const contactDetails = [
     href: "mailto:contact@nathangroup.cd"
   },
   {
-    icon: MapPin,
-    label: "Adresse",
-    value: "Avenue du Commerce, Kinshasa, RDC",
-    href: null
-  },
-  {
     icon: Clock,
     label: "Horaires",
     value: "Lun-Ven: 8h-18h | Sam: 9h-14h",
     href: null
+  },
+]
+
+const addresses = [
+  {
+    city: "Kinshasa",
+    address: "AV. KAUKA 53-73, IMM MAISHA-PARK, Q/BATETELA, C/GOMBE"
+  },
+  {
+    city: "Goma", 
+    address: "Q/MABANGA-SUD, AV.MUTONGO, C/KARISIMBI N 007"
+  },
+  {
+    city: "Bunia",
+    address: "Q/BAKONKO, Av.MANIEMA, C/MBUNYA N 019"
   },
 ]
 
@@ -71,11 +80,31 @@ export function ContactInfo() {
         <hr className="my-6 border-border" />
 
         <Button asChild className="w-full bg-green-600 hover:bg-green-700 text-white">
-          <Link href="https://wa.me/243123456789" target="_blank" className="flex items-center justify-center gap-2">
+          <Link href="https://wa.me/243979213370" target="_blank" className="flex items-center justify-center gap-2">
             <MessageCircle className="w-5 h-5" />
             Discuter sur WhatsApp
           </Link>
         </Button>
+      </div>
+
+      {/* Addresses */}
+      <div className="glass-card rounded-2xl p-8">
+        <h3 className="text-xl font-bold mb-4 text-foreground" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+          Nos adresses
+        </h3>
+        <div className="space-y-4">
+          {addresses.map((item, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <MapPin className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">{item.city}</p>
+                <p className="text-sm text-muted-foreground">{item.address}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Coverage Areas */}

@@ -41,9 +41,9 @@ export function Header() {
       <div className="bg-[#3E1F0F] text-[#FFF1E8] py-2 text-sm hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <a href="tel:+243123456789" className="flex items-center gap-2 hover:text-[#D39A6A] transition-colors">
+            <a href="https://wa.me/243979213370" target="_blank" className="flex items-center gap-2 hover:text-[#D39A6A] transition-colors">
               <Phone className="h-3.5 w-3.5" />
-              <span>+243 123 456 789</span>
+              <span>+243 979 213 370</span>
             </a>
             <span className="text-[#FFF1E8]/50">|</span>
             <span className="flex items-center gap-2">
@@ -52,7 +52,7 @@ export function Header() {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-[#FFF1E8]/70">Partenaire officiel Starlink</span>
+            <span className="text-[#FFF1E8]/70">Votre partenaire officiel pour une connectivité meilleure</span>
           </div>
         </div>
       </div>
