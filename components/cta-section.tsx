@@ -38,11 +38,11 @@ export function CTASection() {
               asChild 
               size="lg" 
               variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 h-14"
+              className="border-primary-foreground text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 text-lg px-8 h-14"
             >
               <Link href="https://wa.me/243979213370" target="_blank" className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
-                <span>Appeler maintenant</span>
+                Appeler maintenant
               </Link>
             </Button>
           </div>
