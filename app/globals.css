@@ -129,6 +129,100 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile-first responsive utilities */
+@layer utilities {
+  .container-responsive {
+    @apply w-full px-4 sm:px-6 lg:px-8 mx-auto;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 640px) {
+    .container-responsive {
+      max-width: 640px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-responsive {
+      max-width: 768px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-responsive {
+      max-width: 1024px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container-responsive {
+      max-width: 1280px;
+    }
+  }
+}
+
+/* Responsive text utilities */
+@layer utilities {
+  .text-responsive-sm {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-base {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-lg {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .text-responsive-3xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+}
+
+/* Responsive spacing */
+@layer utilities {
+  .section-padding {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
+  }
+  
+  .section-padding-sm {
+    @apply py-8 sm:py-12 md:py-16;
+  }
+}
+
+/* Fix for touch devices */
+@media (hover: none) {
+  .glass-card-hover:hover {
+    transform: none;
+    box-shadow: 0 8px 32px var(--glass-shadow);
+  }
+}
+
+/* Prevent text overflow on mobile */
+@layer base {
+  h1, h2, h3, h4, h5, h6, p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
+
+/* Responsive images */
+@layer base {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /* Counter Animation */
 @keyframes countUp {
   from {

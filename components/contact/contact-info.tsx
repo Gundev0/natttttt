@@ -12,10 +12,16 @@ const contactDetails = [
     href: "https://wa.me/243979213370"
   },
   {
+    icon: Phone,
+    label: "Téléphone",
+    value: "+243 890 868 095",
+    href: "https://wa.me/243890868095"
+  },
+  {
     icon: Mail,
     label: "Email",
-    value: "contact@nathangroup.cd",
-    href: "mailto:contact@nathangroup.cd"
+    value: "nathangroup02@gmail.com",
+    href: "mailto:nathangroup02@gmail.com"
   },
   {
     icon: Clock,

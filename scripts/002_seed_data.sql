@@ -4,7 +4,8 @@
 INSERT INTO site_settings (key, value, type) VALUES
 ('site_tagline', 'Votre partenaire officiel pour une connectivité meilleure', 'text'),
 ('whatsapp_number', '+243 979 213 370', 'text'),
-('email', 'contact@nathangroup.cd', 'text'),
+('email', 'nathangroup02@gmail.com', 'text'),
+('phone_secondary', '+243 890 868 095', 'text'),
 ('working_hours', 'Lun-Ven: 8h-18h | Sam: 9h-14h', 'text')
 ON CONFLICT (key) DO NOTHING;
 

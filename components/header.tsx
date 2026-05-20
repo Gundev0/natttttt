@@ -46,6 +46,11 @@ export function Header() {
               <span>+243 979 213 370</span>
             </a>
             <span className="text-[#FFF1E8]/50">|</span>
+            <a href="https://wa.me/243890868095" target="_blank" className="flex items-center gap-2 hover:text-[#D39A6A] transition-colors">
+              <Phone className="h-3.5 w-3.5" />
+              <span>+243 890 868 095</span>
+            </a>
+            <span className="text-[#FFF1E8]/50">|</span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               Kinshasa, RDC
@@ -133,6 +138,17 @@ export function Header() {
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
             <div className="lg:hidden mt-4 pb-4 glass-card rounded-xl p-4">
+              {/* Mobile contact info */}
+              <div className="flex flex-col gap-2 mb-4 pb-4 border-b border-border">
+                <a href="https://wa.me/243979213370" target="_blank" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+                  <Phone className="h-4 w-4" />
+                  <span>+243 979 213 370</span>
+                </a>
+                <a href="https://wa.me/243890868095" target="_blank" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+                  <Phone className="h-4 w-4" />
+                  <span>+243 890 868 095</span>
+                </a>
+              </div>
               <nav className="flex flex-col gap-2">
                 {navItems.map((item) => (
                   <Link

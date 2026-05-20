@@ -112,7 +112,8 @@ INSERT INTO site_settings (key, value, type) VALUES
   ('site_name', 'Nathan Group', 'text'),
   ('tagline', 'Votre partenaire officiel pour une connectivité meilleure', 'text'),
   ('whatsapp', '+243979213370', 'text'),
-  ('email', 'contact@nathangroup.cd', 'text')
+  ('phone_secondary', '+243890868095', 'text'),
+  ('email', 'nathangroup02@gmail.com', 'text')
 ON CONFLICT (key) DO NOTHING;
 
 -- Insert default addresses

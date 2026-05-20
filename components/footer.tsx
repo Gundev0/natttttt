@@ -47,15 +47,16 @@ export function Footer() {
                 Recevez nos actualités et promotions directement dans votre boîte mail.
               </p>
             </div>
-            <form className="flex w-full md:w-auto gap-3">
+            <form className="flex flex-col sm:flex-row w-full md:w-auto gap-3">
               <input
                 type="email"
                 placeholder="Votre adresse email"
                 className="px-4 py-3 rounded-lg bg-[#FFF1E8]/10 border border-[#FFF1E8]/20 text-[#FFF1E8] placeholder:text-[#FFF1E8]/50 focus:outline-none focus:border-[#D39A6A] w-full md:w-72"
               />
-              <Button className="bg-[#D39A6A] hover:bg-[#9A5A2E] text-[#3E1F0F] font-semibold">
+              <Button className="bg-[#D39A6A] hover:bg-[#9A5A2E] text-[#3E1F0F] font-semibold whitespace-nowrap">
                 <Send className="w-4 h-4 mr-2" />
-                Envoyer
+                <span className="hidden sm:inline">Envoyer</span>
+                <span className="sm:hidden">OK</span>
               </Button>
             </form>
           </div>
@@ -64,9 +65,9 @@ export function Footer() {
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6">
               <Image
                 src="/logo-nathan.png"
@@ -149,11 +150,19 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@nathangroup.cd" className="flex items-center gap-3 text-[#FFF1E8]/70 hover:text-[#D39A6A] transition-colors">
+                <a href="https://wa.me/243890868095" target="_blank" className="flex items-center gap-3 text-[#FFF1E8]/70 hover:text-[#D39A6A] transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-[#FFF1E8]/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <span>+243 890 868 095</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:nathangroup02@gmail.com" className="flex items-center gap-3 text-[#FFF1E8]/70 hover:text-[#D39A6A] transition-colors">
                   <div className="w-8 h-8 rounded-full bg-[#FFF1E8]/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span>contact@nathangroup.cd</span>
+                  <span>nathangroup02@gmail.com</span>
                 </a>
               </li>
               <li>

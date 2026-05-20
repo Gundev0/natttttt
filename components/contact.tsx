@@ -9,15 +9,21 @@ import { Textarea } from "@/components/ui/textarea"
 const contactInfo = [
   {
     icon: Phone,
+    label: "WhatsApp",
+    value: "+243 979 213 370",
+    href: "https://wa.me/243979213370",
+  },
+  {
+    icon: Phone,
     label: "Téléphone",
-    value: "+243 123 456 789",
-    href: "tel:+243123456789",
+    value: "+243 890 868 095",
+    href: "https://wa.me/243890868095",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "contact@nathangroup.cd",
-    href: "mailto:contact@nathangroup.cd",
+    value: "nathangroup02@gmail.com",
+    href: "mailto:nathangroup02@gmail.com",
   },
   {
     icon: MapPin,
